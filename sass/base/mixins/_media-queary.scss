@@ -1,0 +1,38 @@
+$small: '360px';
+$medium: '720px';
+$large: '1080px';
+
+@mixin mediaQuery($query) {
+    $queries: (
+      small: '(min-width: #{$small})',
+      medium: '(min-width: #{$medium})',
+      large: '(min-width: #{$large})',
+    );
+  
+    @if map-has-key($queries, $query) {
+      // Get the query value from the map.
+      $query-value: map-get($queries, $query);
+  
+      // Write the media query.
+      @media #{$query-value} {
+        @content;
+      }
+    } @else {
+      // Log a warning if the media query doesn't exist in the map.
+      @warn 'Invalid media query: #{$query}.';
+    }
+  }
+
+//   @include mediaQuery(small-only) {
+//     font-size: $text-small;
+//   }
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}  
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}

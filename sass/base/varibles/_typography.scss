@@ -1,0 +1,103 @@
+$roboto-font-path: "./assets/fonts";
+
+@font-face {
+    // This is parsed as a normal function call that takes a quoted string.
+    src: url("#{$roboto-font-path}/Roboto-Regular.ttf") format("truetype");
+
+    font-family: "Roboto";
+    font-weight: 400;
+}
+
+@font-face {
+    // This is parsed as a normal function call that takes a quoted string.
+    src: url("#{$roboto-font-path}/Roboto-Medium.ttf") format("truetype");
+
+    font-family: "RobotoMedium";
+    font-weight: 500;
+}
+
+$font-primary: "Roboto", sans-serif;
+$font-secondary: "RobotoMedium", sans-serif;;
+
+html, .root {
+    font-size: 16px;
+    @include mediaQuery(medium) {
+         font-size: 18px;
+    }
+    @include mediaQuery(large) {
+        font-size: 20px;
+   }
+  }
+  body, .article {
+    font-family: $font-primary;
+    font-size: 1em;
+    line-height: 1.3125em;
+    margin: auto;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+      font-family: $font-secondary;
+  }
+  h1, .h1 {
+    font-size: 2.375em;
+    line-height: 1.10526316em;
+    margin-top: 0.55263158em;
+    margin-bottom: 1.10526316em;
+  }
+  h2, .h2 {
+    font-size: 1.75em;
+    line-height: 1.5em;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+  }
+  h3, .h3 {
+    font-size: 1.3125em;
+    line-height: 1em;
+    margin-top: 1em;
+    margin-bottom: 0em;
+  }
+  h4, .h4 {
+    font-size: 1.3125em;
+    line-height: 1em;
+    margin-top: 1em;
+    margin-bottom: 0em;
+  }
+  h5, .h5 {
+    font-size: 1em;
+    line-height: 1.3125em;
+    margin-top: 1.3125em;
+    margin-bottom: 0em;
+  }
+  p, ul, ol, pre, table, blockquote {
+    margin-top: 0em;
+    margin-bottom: 1.3125em;
+  }
+  ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0em;
+    margin-bottom: 0em;
+  }
+  
+  /* Let's make sure all's aligned */
+  hr, .hr {
+    border: 1px solid;
+    margin: -1px 0;
+  }
+  a, b, i, strong, em, small, code {
+    line-height: 0;
+  }
+  sub, sup {
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sup {
+    top: -0.5em;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  

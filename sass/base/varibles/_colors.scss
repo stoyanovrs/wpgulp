@@ -1,0 +1,52 @@
+
+$primary_color: #23DAFF;
+
+$primary_color_10: darken($primary_color, 10%);
+$primary_color_20: darken($primary_color, 20%);
+$primary_color_30: darken($primary_color, 30%);
+$primary_color_40: darken($primary_color, 40%);
+$primary_color_50: darken($primary_color, 50%);
+
+$secondary_color: #FFD15C;
+
+$secondary_color_10: darken($secondary_color, 10%);
+$secondary_color_20: darken($secondary_color, 20%);
+$secondary_color_30: darken($secondary_color, 30%);
+
+$white: #FFFFFF;
+
+$gray_10: darken($white, 10%);
+$gray_20: darken($white, 20%);
+$gray_30: darken($white, 30%);
+$gray_40: darken($white, 40%);
+$gray_50: darken($white, 50%);
+$gray_60: darken($white, 60%);
+$gray_70: darken($white, 70%);
+$gray_80: darken($white, 80%);
+$gray_90: darken($white, 90%);
+
+$success_color: #23FF7B;
+$warning_color: #FFA723;
+$danger_color: #FF4A23;
+
+$main_background_color: $gray_10;
+$main_text_color: $gray_70;
+//Links
+$link_color: $primary_color_30;
+$link_visit_color: $primary_color_30;
+$link_color_hover: $primary_color_10;
+
+//Buttons
+$button_border_color: $gray_80;
+$button_background_color: $primary_color_10;
+$button_border_color-hover: $primary_color_20;
+$button_border_color-focus: $primary_color_30;
+
+// Input Fields
+$fields_text_color: $gray_70;
+$fields_border_color: $gray_70;
+$fields_bordor_color_focus: $gray_80;
+$fields_border_color_input: $gray_70;
+
+//hr
+$hr_background_color: $gray_50;

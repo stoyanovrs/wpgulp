@@ -1,5 +1,6 @@
 a {
 	color: $link_color;
+	text-decoration: none;
 
 	&:visited {
 		color: $link_visit_color;

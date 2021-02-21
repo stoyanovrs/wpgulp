@@ -36,9 +36,9 @@ template{display:none}
 html{-webkit-box-sizing:border-box;box-sizing:border-box}
 @font-face{src:url("./assets/fonts/Roboto-Regular.ttf") format("truetype");font-family:"Roboto";font-weight:400}
 @font-face{src:url("./assets/fonts/Roboto-Medium.ttf") format("truetype");font-family:"RobotoMedium";font-weight:500}
-html,.root{font-size:16px}
+html,.root{font-size:16px;color:#4d4c4c}
 body,.article{font-family:"Roboto",sans-serif;font-size:1em;line-height:1.3125em;margin:auto}
-h1,h2,h3,h4,h5,h6{font-family:"RobotoMedium",sans-serif}
+h1,h2,h3,h4,h5,h6{font-family:"RobotoMedium",sans-serif;color:#004856}
 h1,.h1{font-size:2.375em;line-height:1.10526316em;margin-top:.55263158em;margin-bottom:1.10526316em}
 h2,.h2{font-size:1.75em;line-height:1.5em;margin-top:.75em;margin-bottom:.75em}
 h3,.h3{font-size:1.3125em;line-height:1em;margin-top:1em;margin-bottom:0}
@@ -96,11 +96,11 @@ ul.products li.product .button{display:block}
 .star-rating span{overflow:hidden;float:left;top:0;left:0;position:absolute;padding-top:1.5em}
 .star-rating span::before{content:"\53\53\53\53\53";top:0;position:absolute;left:0;color:#007289}
 p.stars a{position:relative;height:1em;width:1em;text-indent:-999em;display:inline-block;text-decoration:none;margin-right:1px;font-weight:400}
-p.stars a::before{display:block;position:absolute;top:0;left:0;width:1em;height:1em;line-height:1;font-family:star;content:"\53";color:#4d4c4c;text-indent:0;opacity:.25}
-p.stars a:hover ~ a::before{content:"\53";color:#4d4c4c;opacity:.25}
+p.stars a::before{display:block;position:absolute;top:0;left:0;width:1em;height:1em;line-height:1;font-family:star;content:"\53";color:#807f7f;text-indent:0;opacity:.25}
+p.stars a:hover ~ a::before{content:"\53";color:#807f7f;opacity:.25}
 p.stars:hover a::before{content:"\53";color:#007289;opacity:1}
 p.stars.selected a.active::before{content:"\53";color:#007289;opacity:1}
-p.stars.selected a.active ~ a::before{content:"\53";color:#4d4c4c;opacity:.25}
+p.stars.selected a.active ~ a::before{content:"\53";color:#807f7f;opacity:.25}
 p.stars.selected a:not(.active)::before{content:"\53";color:#007289;opacity:1}
 .woocommerce-tabs ul.tabs{list-style:none;margin:0;padding:0;text-align:left}
 .woocommerce-tabs ul.tabs li{display:block;margin:0;position:relative}

@@ -43,137 +43,141 @@
 })(jQuery);
 "use strict";
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+// /**
+//  * File navigation.js.
+//  *
+//  * Handles toggling the navigation menu for small screens and enables TAB key
+//  * navigation support for dropdown menus.
+//  */
+// ( function() {
+// 	const siteNavigation = document.getElementById( 'site-navigation' );
+// 	// Return early if the navigation don't exist.
+// 	if ( ! siteNavigation ) {
+// 		return;
+// 	}
+// 	const button = siteNavigation.getElementsByTagName( 'button' )[ 0 ];
+// 	// Return early if the button don't exist.
+// 	if ( 'undefined' === typeof button ) {
+// 		return;
+// 	}
+// 	const menu = siteNavigation.getElementsByTagName( 'ul' )[ 0 ];
+// 	// Hide menu toggle button if menu is empty and return early.
+// 	if ( 'undefined' === typeof menu ) {
+// 		button.style.display = 'none';
+// 		return;
+// 	}
+// 	if ( ! menu.classList.contains( 'nav-menu' ) ) {
+// 		menu.classList.add( 'nav-menu' );
+// 	}
+// 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
+// 	button.addEventListener( 'click', function() {
+// 		siteNavigation.classList.toggle( 'toggled' );
+// 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
+// 			button.setAttribute( 'aria-expanded', 'false' );
+// 		} else {
+// 			button.setAttribute( 'aria-expanded', 'true' );
+// 		}
+// 	} );
+// 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
+// 	document.addEventListener( 'click', function( event ) {
+// 		const isClickInside = siteNavigation.contains( event.target );
+// 		if ( ! isClickInside ) {
+// 			siteNavigation.classList.remove( 'toggled' );
+// 			button.setAttribute( 'aria-expanded', 'false' );
+// 		}
+// 	} );
+// 	// Get all the link elements within the menu.
+// 	const links = menu.getElementsByTagName( 'a' );
+// 	// Get all the link elements with children within the menu.
+// 	const linksWithChildren = menu.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
+// 	// Toggle focus each time a menu link is focused or blurred.
+// 	for ( const link of links ) {
+// 		link.addEventListener( 'focus', toggleFocus, true );
+// 		link.addEventListener( 'blur', toggleFocus, true );
+// 	}
+// 	// Toggle focus each time a menu link with children receive a touch event.
+// 	for ( const link of linksWithChildren ) {
+// 		link.addEventListener( 'touchstart', toggleFocus, false );
+// 	}
+// 	/**
+// 	 * Sets or removes .focus class on an element.
+// 	 */
+// 	function toggleFocus() {
+// 		if ( event.type === 'focus' || event.type === 'blur' ) {
+// 			let self = this;
+// 			// Move up through the ancestors of the current link until we hit .nav-menu.
+// 			while ( ! self.classList.contains( 'nav-menu' ) ) {
+// 				// On li elements toggle the class .focus.
+// 				if ( 'li' === self.tagName.toLowerCase() ) {
+// 					self.classList.toggle( 'focus' );
+// 				}
+// 				self = self.parentNode;
+// 			}
+// 		}
+// 		if ( event.type === 'touchstart' ) {
+// 			const menuItem = this.parentNode;
+// 			event.preventDefault();
+// 			for ( const link of menuItem.parentNode.children ) {
+// 				if ( menuItem !== link ) {
+// 					link.classList.remove( 'focus' );
+// 				}
+// 			}
+// 			menuItem.classList.toggle( 'focus' );
+// 		}
+// 	}
+// }() );
+var toggleBtn = document.querySelector('.menu-toggle');
+var mainNav = document.querySelector('.main-navigation');
+var saitMain = document.querySelector('.site-main');
+toggleBtn.addEventListener('click', function () {
+  console.log('click hamburger');
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+  if (toggleBtn.classList.contains('cliked')) {
+    mainNav.classList.remove('open');
+    toggleBtn.classList.remove('cliked');
+  } else {
+    mainNav.classList.add('open');
+    toggleBtn.classList.add('cliked');
+  } // 	if(mainNav.classList.contains('open')){ // Close Hamburger Menu
+  // 		mainNav.classList.remove('open');    
+  // 		};
+  // 	} else { // Open Hamburger Menu
+  // 		body.classList.add('noscroll');
+  // 		header.classList.add('open');
+  // 		fadeElems.forEach(function(element){
+  // 		  element.classList.remove('fade-out');
+  // 		  element.classList.add('fade-in');
+  // 		});
+  // 	  }  
+  // }
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+}); // const dropToggle = document.querySelector('.menu-item-has-children');
+// dropToggle.addEventListener('click', function(){
+// 	console.log('click drop');
+// 	if (dropToggle.classList.contains('drop')) {
+// 		dropToggle.classList.remove('drop');
+// 	} else {
+// 		dropToggle.classList.add('drop');
+// 	}
+// });
 
-/**
- * File navigation.js.
- *
- * Handles toggling the navigation menu for small screens and enables TAB key
- * navigation support for dropdown menus.
- */
-(function () {
-  var siteNavigation = document.getElementById('site-navigation'); // Return early if the navigation don't exist.
-
-  if (!siteNavigation) {
-    return;
-  }
-
-  var button = siteNavigation.getElementsByTagName('button')[0]; // Return early if the button don't exist.
-
-  if ('undefined' === typeof button) {
-    return;
-  }
-
-  var menu = siteNavigation.getElementsByTagName('ul')[0]; // Hide menu toggle button if menu is empty and return early.
-
-  if ('undefined' === typeof menu) {
-    button.style.display = 'none';
-    return;
-  }
-
-  if (!menu.classList.contains('nav-menu')) {
-    menu.classList.add('nav-menu');
-  } // Toggle the .toggled class and the aria-expanded value each time the button is clicked.
-
-
-  button.addEventListener('click', function () {
-    siteNavigation.classList.toggle('toggled');
-
-    if (button.getAttribute('aria-expanded') === 'true') {
-      button.setAttribute('aria-expanded', 'false');
-    } else {
-      button.setAttribute('aria-expanded', 'true');
-    }
-  }); // Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
-
-  document.addEventListener('click', function (event) {
-    var isClickInside = siteNavigation.contains(event.target);
-
-    if (!isClickInside) {
-      siteNavigation.classList.remove('toggled');
-      button.setAttribute('aria-expanded', 'false');
-    }
-  }); // Get all the link elements within the menu.
-
-  var links = menu.getElementsByTagName('a'); // Get all the link elements with children within the menu.
-
-  var linksWithChildren = menu.querySelectorAll('.menu-item-has-children > a, .page_item_has_children > a'); // Toggle focus each time a menu link is focused or blurred.
-
-  var _iterator = _createForOfIteratorHelper(links),
-      _step;
-
-  try {
-    for (_iterator.s(); !(_step = _iterator.n()).done;) {
-      var link = _step.value;
-      link.addEventListener('focus', toggleFocus, true);
-      link.addEventListener('blur', toggleFocus, true);
-    } // Toggle focus each time a menu link with children receive a touch event.
-
-  } catch (err) {
-    _iterator.e(err);
-  } finally {
-    _iterator.f();
-  }
-
-  var _iterator2 = _createForOfIteratorHelper(linksWithChildren),
-      _step2;
-
-  try {
-    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-      var _link = _step2.value;
-
-      _link.addEventListener('touchstart', toggleFocus, false);
-    }
-    /**
-     * Sets or removes .focus class on an element.
-     */
-
-  } catch (err) {
-    _iterator2.e(err);
-  } finally {
-    _iterator2.f();
-  }
-
-  function toggleFocus() {
-    if (event.type === 'focus' || event.type === 'blur') {
-      var self = this; // Move up through the ancestors of the current link until we hit .nav-menu.
-
-      while (!self.classList.contains('nav-menu')) {
-        // On li elements toggle the class .focus.
-        if ('li' === self.tagName.toLowerCase()) {
-          self.classList.toggle('focus');
-        }
-
-        self = self.parentNode;
-      }
-    }
-
-    if (event.type === 'touchstart') {
-      var menuItem = this.parentNode;
-      event.preventDefault();
-
-      var _iterator3 = _createForOfIteratorHelper(menuItem.parentNode.children),
-          _step3;
-
-      try {
-        for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-          var link = _step3.value;
-
-          if (menuItem !== link) {
-            link.classList.remove('focus');
-          }
-        }
-      } catch (err) {
-        _iterator3.e(err);
-      } finally {
-        _iterator3.f();
-      }
-
-      menuItem.classList.toggle('focus');
-    }
-  }
-})();
+var dropToggle = document.querySelector('.menu-item-has-children');
+dropToggle.addEventListener('click', function () {
+  console.log('click drop');
+  dropToggle.classList.toggle('drop');
+}); // var acc = document.getElementsByClassName(".menu-item-has-children");
+// var i;
+// for (i = 0; i < acc.length; i++) {
+//   acc[i].addEventListener("click", function() {
+//     /* Toggle between adding and removing the "active" class,
+//     to highlight the button that controls the panel */
+//     this.classList.toggle("drop");
+//     /* Toggle between hiding and showing the active panel */
+//     var panel = this.nextElementSibling;
+//     if (panel.style.display === "block") {
+//       panel.style.display = "none";
+//     } else {
+//       panel.style.display = "block";
+//     }
+//   });
+// }

@@ -1,0 +1,8 @@
+.site {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+@import 'header';
+@import 'main';
+@import 'aside';
+@import 'footer';

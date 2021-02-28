@@ -23,7 +23,7 @@ $large: '1080px';
     }
   }
 
-//   @include mediaQuery(small-only) {
+//   @include mediaQuery(small) {
 //     font-size: $text-small;
 //   }
 @mixin center-block {
